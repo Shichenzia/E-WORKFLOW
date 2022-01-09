@@ -1,20 +1,34 @@
 {
   "data": {
     "mysql": {
-      "host": "127.0.0.1",
+      "host": "121.196.206.242",
       "port": 3306,
-      "user": "root",
-      "password": "root",
-      "database": "test"
+      "user": "workflow",
+      "password": "58REwcpXHCtCc5zy",
+      "database": "workflow"
     }
   },
   "logic": {
+    "gate": {
+      "formUrl": {
+        "hostname": "127.0.0.1",
+        "port": "8086"
+      },
+      "teamUrl": {
+        "hostname": "127.0.0.1",
+        "port": "8087"
+      },
+      "workflowUrl": {
+        "hostname": "127.0.0.1",
+        "port": "8085"
+      }
+    }
     
   },
   "serv": {
-    "name": "nodex-0",
+    "name": "E-WORKFROM",
     "host": "127.0.0.1",
-    "port": 8080,
+    "port": 8085,
     "cors": true,
     "log": true,
     "proxy": true

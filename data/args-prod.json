@@ -11,19 +11,22 @@
   "logic": {
     "gate": {
       "formUrl": {
-        "hostname": "127.0.0.1",
-        "port": "8086"
+        "hostname": "leansocket.tech",
+        "port": "80"
       },
       "teamUrl": {
-        "hostname": "127.0.0.1",
-        "port": "8087"
+        "hostname": "leansocket.tech",
+        "port": "80"
       },
       "workflowUrl": {
-        "hostname": "127.0.0.1",
-        "port": "8085"
+        "hostname": "leansocket.tech",
+        "port": "80"
+      },
+      "secret": {
+        "appid": "000ecbd765e60000000b",
+        "secret": "b132821b38fe460fed55a8743291429c"
       }
     }
-    
   },
   "serv": {
     "name": "E-WORKFROM",

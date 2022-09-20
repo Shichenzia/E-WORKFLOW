@@ -2,7 +2,7 @@
 
 const { libs, runtime } = nodex;
 const { data } = runtime;
-const { fmt, flakes, error } = libs;
+const { fmt, flakes, log, error } = libs;
 
 const gate = require('./gate');
 
@@ -31,16 +31,16 @@ const idCreate = flakes.create();
 exports.init = async function (args) { 
     console.log('logic init.');
     console.log('logic init args:', args);
-    log.init({
-        scope: "form",
-        server: {
-          url: "https://leansocket.tech/api/easegram-logs/add_logs",
-          appid: "000ecbd765e60000000b",
-          secret: "b132821b38fe460fed55a8743291429c",
-          interval: 6000
-        },
-        handler: ()=>{}
-    });
+    // log.init({
+    //     scope: "workflow",
+    //     server: {
+    //       url: "https://leansocket.tech/api/easegram-logs/add_logs",
+    //       appid: "000ecbd765e60000000b",
+    //       secret: "b132821b38fe460fed55a8743291429c",
+    //       interval: 6000
+    //     },
+    //     handler: ()=>{}
+    // });
 };
 
 exports.helloWorld = async function () {
@@ -566,7 +566,7 @@ async function executeNode(nodeId, workOrderId, result, processor, message) {
         return;
     }
 
-    // 4.将下一步的节点用户列表都添加到用户工单关系表
+    // 5.将下一步的节点用户列表都添加到用户工单关系表
     const { c_id, c_type, c_node_user_list } = nextNode[0];
     const nodeUserList = JSON.parse(c_node_user_list);
 
@@ -583,7 +583,7 @@ async function executeNode(nodeId, workOrderId, result, processor, message) {
         });
     });
 
-    // 4.修改工单状态 (isend,state)
+    // 6.修改工单状态 (isend,state)
     let isEnd = "0";
     // 如果 result === "0" 代表拒绝改流程 isEnd = "1";
     if(result === "0") {
@@ -597,7 +597,7 @@ async function executeNode(nodeId, workOrderId, result, processor, message) {
         mtime: formatDate(new Date())
     })
 
-    // 5.如果是抄送节点将自动执行
+    // 7.如果是抄送节点将自动执行
     if(c_type === "2") {
         executeNode(c_id, workOrderId, "1", "0001", "抄送人，自动执行")
     }
